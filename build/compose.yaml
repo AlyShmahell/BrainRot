@@ -1,0 +1,11 @@
+services:
+  brainrot-compiler:
+    build:
+      context: ..
+      dockerfile: build/containerfile
+    working_dir: /src
+    volumes:
+      - ..:/src
+    security_opt:
+      - label=disable
+    command: ["make", "-C", "build"]
